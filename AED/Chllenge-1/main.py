@@ -1,5 +1,8 @@
-from sum import Sum as S
-from utils import Utils as U
+from sum import Sum
+from utils import Utils
+
+S = Sum()
+U = Utils()
 
 def main() -> None:
     start = U.input_number("start: ",)
