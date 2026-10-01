@@ -2,15 +2,15 @@ from sum import Sum as S
 from utils import Utils as U
 
 def main() -> None:
-    start = U.InputNumber("start: ",)
-    end = U.InputNumber("end: ")
-    success, result = S.WithRange(start, end)
+    start = U.input_number("start: ",)
+    end = U.input_number("end: ")
+    success, result = S.with_range(start, end)
     print(success, result)
 
-    U.ClearScreen(False)
+    U.clear_screen(False)
 
-    value = U.InputNumber("value: ")
-    success, result = S.ToValue(value)
+    value = U.input_number("value: ")
+    success, result = S.to_value(value)
     print(success, result)
 
 main()

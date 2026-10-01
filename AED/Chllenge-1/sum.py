@@ -1,17 +1,17 @@
 from typing import Literal
 
-ValidType = (int, float)
-Success = tuple[Literal[True], int | float]
-Error = tuple[Literal[False], str]
-Result = Success | Error
+VALID_TYPES = (int, float)
+SUCCESS = tuple[Literal[True], int | float]
+ERROR = tuple[Literal[False], str]
+RESULT = SUCCESS | ERROR
 
 class Sum:
     @staticmethod
-    def WithRange(start: int | float, end: int | float) -> Result:
+    def with_range(start: int | float, end: int | float) -> RESULT:
         start_t = type(start)
         end_t = type(end)
 
-        if start_t not in ValidType or end_t not in ValidType:
+        if start_t not in VALID_TYPES or end_t not in VALID_TYPES:
             return (False, "start and end values must be both one of the following datatype: int or float")
 
         if start_t is not end_t:
@@ -28,6 +28,6 @@ class Sum:
         return (True, total / 2)
     
     @staticmethod
-    def ToValue(value: int | float) -> Result:
+    def to_value(value: int | float) -> RESULT:
         zero = type(value)(0)
-        return Sum.WithRange(zero, value)
+        return Sum.with_range(zero, value)

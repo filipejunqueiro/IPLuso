@@ -1,9 +1,9 @@
-from os import system as Exec
-from platform import system as Sys 
+from os import system as cmd
+from platform import system as sys 
 
 class Utils:
     @staticmethod
-    def ParseNumber(string: str) -> int | float:
+    def parse_number(string: str) -> int | float:
         string = string.strip()
         try:
             return int(string)
@@ -11,19 +11,19 @@ class Utils:
             return float(string)
 
     @staticmethod
-    def ClearScreen(now = True) -> None:
+    def clear_screen(now = True) -> None:
         if not now:
             input("Press any key to continue...")
 
-        Exec("cls" if Sys() == "Windows" else "clear")
+        cmd("cls" if sys() == "Windows" else "clear")
 
     @staticmethod
-    def InputNumber(message: str, clear: bool = False) -> int | float:
+    def input_number(message: str, clear: bool = False) -> int | float:
         while True:
             if clear:
-                Utils.ClearScreen()
+                Utils.clear_screen()
             try:
                 user_input = input(message)
-                return Utils.ParseNumber(user_input)
+                return Utils.parse_number(user_input)
             except (ValueError, EOFError):
                 continue
