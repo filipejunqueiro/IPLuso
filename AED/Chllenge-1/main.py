@@ -5,7 +5,7 @@ S = Sum()
 U = Utils()
 
 def main() -> None:
-    start = U.input_number("start: ",)
+    start = U.input_number("start: ")
     end = U.input_number("end: ")
     success, result = S.with_range(start, end)
     print(success, result)
